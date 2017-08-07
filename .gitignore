@@ -1,0 +1,8 @@
+#vcode
+.vscode/
+
+#babeling result
+dist/
+
+#npm
+node_modules/
