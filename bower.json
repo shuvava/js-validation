@@ -1,0 +1,15 @@
+{
+    "name": "js-validation",
+    "dependencies": {
+        "jquery": "3.2.1",
+        "knockout": "3.4.2",
+        "lodash": "4.17.4",
+        "requirejs": "2.3.4",
+        "bootstrap":"latest"
+    },
+    "overrides": {
+        "requirejs": {
+            "main": "require.js"
+        }
+    }
+}

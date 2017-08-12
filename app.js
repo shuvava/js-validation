@@ -1,17 +1,26 @@
 const HttpSrv = require('dev-http-server');
 const gulp = require('gulp');
-const runSequence = require('run-sequence');
-const tasks = require('require-dir')('./tasks', { recurse: true });
+require('./gulpfile');
+
+gulp.start('copy-libraries');
+
+const traspile = require('js-transpiler');
+
+traspile.run({
+    config: {
+        lint: {
+            failAfterError: false,
+        },
+    },
+});
 
 const httpSrv = new HttpSrv();
 
 // compiled javascripts
 httpSrv.setStatic('/dist', '/dist', '');
 // modules
-httpSrv.setStatic('/libs', '/node_modules', '');
+httpSrv.setStatic('/libs', '/libs', '');
 // html pages
 httpSrv.setStatic('/', '/www', 'index.html');
-
-gulp.run('watch:transpile:all');
 
 HttpSrv.run({ httpSrv });
